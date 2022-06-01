@@ -1,0 +1,23 @@
+{
+  "name": "deep-thoughts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/santiagov916/deep-thoughts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/santiagov916/deep-thoughts/issues"
+  },
+  "homepage": "https://github.com/santiagov916/deep-thoughts#readme",
+  "dependencies": {
+    "concurrently": "^7.2.1"
+  }
+}
