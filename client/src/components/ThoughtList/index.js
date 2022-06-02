@@ -15,7 +15,7 @@ const ThoughtList = ({ thoughts, title }) => {
                     <p className="card-header">
                         <Link
                         to={`/profile/${thought.username}`}
-                        style={{ fontWeight: 700}}
+                        style={{ fontWeight: 700 }}
                         className="text-light">
                             {thought.username}
                         </Link>{' '}
