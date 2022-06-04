@@ -3,9 +3,8 @@ import { useQuery } from '@apollo/client';
 import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
 import Auth from '../utils/auth';
 
-
 import ThoughtList from '../components/ThoughtList';
-import FriendList from '../components/FriendsList';
+import FriendList from '../components/FriendList';
 
 const Home = () => {
 
