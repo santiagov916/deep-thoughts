@@ -80,6 +80,7 @@ const Profile = (props) => {
           />
         </div>
       </div>
+      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
     </div>
   );
 };

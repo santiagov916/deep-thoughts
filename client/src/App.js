@@ -43,6 +43,7 @@ function App() {
         <div className='flex-column justify-flex-start min-100-vh'>
           <Header />
           <div className='container'>
+
             <Routes>
 
               <Route
@@ -79,7 +80,9 @@ function App() {
               path="*"
               element={<NoMatch />}
               />
+
             </Routes>
+            
           </div>
           <Footer />
         </div>
