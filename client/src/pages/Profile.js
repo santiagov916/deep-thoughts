@@ -7,7 +7,7 @@ import ThoughtForm from '../components/ThoughtForm';
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { ADD_FRIEND, ADD_USER } from '../utils/mutations';
+import { ADD_FRIEND } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Profile = (props) => {
@@ -63,7 +63,7 @@ const Profile = (props) => {
         </button>
         )}
       </div>
-
+      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
           <ThoughtList
@@ -80,7 +80,7 @@ const Profile = (props) => {
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
+      
     </div>
   );
 };
