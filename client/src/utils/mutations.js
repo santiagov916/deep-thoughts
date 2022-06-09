@@ -56,3 +56,19 @@ export const ADD_THOUGHT = gql`
     }
   }
 `;
+
+export const ADD_REACTION = gql`
+    mutation addReaction($thoughtId: ID!, $reactionBody: String!) {
+        addReaction(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+            _id
+            reactionCount
+            reactions {
+                _id
+                reactionBody
+                createdAt
+                username
+            }
+        }
+    }
+`;
+

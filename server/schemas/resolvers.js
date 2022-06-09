@@ -111,7 +111,7 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You are not logged in!');
-        }
+        },
 
     }
   };
