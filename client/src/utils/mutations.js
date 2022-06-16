@@ -11,7 +11,6 @@ mutation login($email: String!, $password: String!) {
         }
     }
 }
-
 `;
 
 export const ADD_USER = gql`
@@ -71,4 +70,3 @@ export const ADD_REACTION = gql`
         }
     }
 `;
-

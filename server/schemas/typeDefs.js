@@ -1,6 +1,5 @@
 const { gql } = require('apollo-server-express');
 
-
 const typeDefs = gql`
 
     type User {
@@ -50,6 +49,5 @@ const typeDefs = gql`
         addFriend(friendId: ID!): User
     }
 `;
-
 
 module.exports = typeDefs;
