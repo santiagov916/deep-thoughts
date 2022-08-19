@@ -21,6 +21,8 @@ const typeDefs = gql `
         username: String
         email: String
         friendCount: Int
+        thoughts: [Thought]
+        friends: [User]
     }
 
     type Reaction {
@@ -31,7 +33,10 @@ const typeDefs = gql `
     }
 
     type Query {
+        users: [User]
+        user(username: String!): User
         thoughts(username: String): [Thought]
+        thought(_id: ID!): Thought
     }
 `;
 
