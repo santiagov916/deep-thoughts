@@ -1,5 +1,5 @@
 // import mongoose
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 // import reaction schema
 const reactionSchema = require('./Reaction');
@@ -9,11 +9,11 @@ const dateFormat = require('../utils/dateFormat');
 
 const thoughtSchema = new Schema (
     {
-        thought: {
+        thoughtText: {
             type: String,
+            required: 'You need to leave a thought!',
             minLength: 1,
-            maxLength: 150,
-            required: 'You need to leave a thought'
+            maxLength: 280
         },
         createdAt: {
             type: Date,
@@ -25,13 +25,16 @@ const thoughtSchema = new Schema (
             required: true
         },
         reactions: [reactionSchema],
+    },
+    {
         toJSON: {
             getters: true
         }
+
     }
 );
 
-thoughtSchema.virtuals('reactionCount').get(function() {
+thoughtSchema.virtual('reactionCount').get(function() {
     return this.reactions.length;
 });
 

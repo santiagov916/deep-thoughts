@@ -1,0 +1,15 @@
+const { User, Thought } = require('../models');
+
+const resolvers = {
+    Query: {
+        // insert a username as  paramenter to fetch their thoughts
+        thoughts: async (parent, { username }) => {
+            // set the params as username and if none found return an empty string
+            const params = username ? { username } : {};
+
+            return Thought.find().sort({ createdAt: -1 });
+        },
+    }
+};
+
+module.exports = resolvers;
