@@ -9,7 +9,7 @@ const resolvers = {
 
             return Thought.find().sort({ createdAt: -1 });
         },
-
+        // insert id as a parameter to select a single thought
         thought: async (parent, { _id }) => {
 
             return Thought.findOne({ _id });
@@ -17,11 +17,13 @@ const resolvers = {
 
         users: async () => {
             return User.find()
+            // don't include the password in the query
             .select('-__v -password')
+            // populate the friend and thoughts field because its associated data
             .populate('friends')
             .populate('thoughts');
         },
-
+        // insert a single id to get a single user
         user: async (parent, { username }) => {
 
             return User.findOne({ username })
