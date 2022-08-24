@@ -95,6 +95,7 @@ const resolvers = {
         addThought: async (parent, args, context) => {
 
             if (context.user) {
+                
 
                 const thought = await Thought.create({ ...args, username: context.user.username });
     
@@ -158,7 +159,24 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
-        }
+        },
+
+        // editThought: async (parent, { thoughtId, thoughtText }, context ) => {
+
+        //     if (context.user) {
+
+        //         const updatedThought = await Thought.updateOne({ thoughtId, thoughtText: thoughtText})
+
+        //         await Thought.findByIdAndUpdate(
+        //             { _id: thoughtId },
+        //             { $push: { thought: { thoughtText, username: context.user.username } } },
+        //             { new: true, runValidators: true }
+        //         );
+        //         return updatedThought;
+        //     }
+
+        //     throw new AuthenticationError('You need to be logged in!');
+        // },
 
     }
 };
