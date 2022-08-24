@@ -8,6 +8,23 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+        // use authMiddleware from context to authorize this query
+        me: async (parent, args, context) => {
+
+            if (context.user) {
+
+                const userData = await User.findOne({ _id: context.user._id })
+                
+                .select('-__v -password')
+                .populate('thoughts')
+                .populate('friends');
+    
+                return userData;
+            }
+
+            throw new AuthenticationError('Not logged in')
+        },
+
         // insert a username as  paramenter to fetch their thoughts
         thoughts: async (parent, { username }) => {
             // set the params as username and if none found return an empty string
@@ -15,6 +32,7 @@ const resolvers = {
 
             return Thought.find().sort({ createdAt: -1 });
         },
+
         // insert id as a parameter to select a single thought
         thought: async (parent, { _id }) => {
 
