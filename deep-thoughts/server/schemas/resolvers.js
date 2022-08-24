@@ -140,6 +140,24 @@ const resolvers = {
             }
             
             throw new AuthenticationError('You need to be logged in!');
+        },
+
+        deleteThought: async (parent, { thoughtId }, context) => {
+
+            if (context.user) {
+
+                const updateUser = await Thought.deleteOne({ _id: thoughtId });
+
+                await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { thought: thoughtId }},
+                    { new: false }
+                ).populate('thoughts');
+
+                return updateUser;
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
         }
 
     }
