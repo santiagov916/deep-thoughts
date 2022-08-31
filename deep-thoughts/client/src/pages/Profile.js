@@ -5,6 +5,7 @@ import { Navigate, useParams} from 'react-router-dom';
 import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
 import ThoughtForm from '../components/ThoughtForm';
+
 import Auth from '../utils/auth';
 
 import { useQuery, useMutation } from '@apollo/client';
