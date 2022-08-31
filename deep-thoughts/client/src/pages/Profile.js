@@ -4,6 +4,7 @@ import { Navigate, useParams} from 'react-router-dom';
 
 import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
+import ThoughtForm from '../components/ThoughtForm';
 import Auth from '../utils/auth';
 
 import { useQuery, useMutation } from '@apollo/client';
@@ -63,7 +64,7 @@ const Profile = (props) => {
         </button>
         )}
       </div>
-
+      <div className='mb-3'>{!userParam && <ThoughtForm />}</div>
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
 
@@ -78,8 +79,8 @@ const Profile = (props) => {
           friends={user.friends}
           />
         </div>
-
       </div>
+      
     </div>
   );
 };
