@@ -84,6 +84,10 @@ a:visited {
   color: inherit;
 }
 
+.text-small {
+  font-size: 1rem !important;
+}
+
 nav {
   width: 100%;
   justify-content: center;
